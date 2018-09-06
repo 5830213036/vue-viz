@@ -12,6 +12,11 @@
           </li>
         </ul>
       </div>
+<span class="btn-floating btn-large halfway-fab pink">
+  <router-link :to="{ name:'Editblog', params :{blog_slug : blog.slug}}">
+    <i class="material-icons edit">edit</i>
+  </router-link>
+</span>
     </div>
   </div>
 </template>

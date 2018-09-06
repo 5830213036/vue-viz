@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/components/Index'
 import Addblog from '@/components/Addblog'
+import Editblog from '@/components/Editblog'
 
 Vue.use(Router)
 
@@ -16,6 +17,11 @@ export default new Router({
       path: '/add-blog',
       name: 'Addblog',
       component: Addblog
+    },
+    {
+      path: '/edit-blog/:blog_slug',
+      name: 'Editblog',
+      component: Editblog
     }
   ]
 })
