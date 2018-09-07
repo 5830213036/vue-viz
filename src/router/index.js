@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Index from '@/components/Index'
 import Addblog from '@/components/Addblog'
 import Editblog from '@/components/Editblog'
+import SignIn from '@/components/SignIn'
 
 Vue.use(Router)
 
@@ -22,6 +23,15 @@ export default new Router({
       path: '/edit-blog/:blog_slug',
       name: 'Editblog',
       component: Editblog
+    },
+    {
+      path: '/sign-in',
+      name: 'SignIn',
+      component: SignIn
     }
   ]
+  
 })
+
+
+

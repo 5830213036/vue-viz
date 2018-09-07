@@ -5,6 +5,11 @@
                 <router-link :to="{ name: 'Index' }">
                     <span class="nav-title">PTEI Visualization</span>
                 </router-link>
+                
+                <router-link :to="{ path: '/sign-in' }">
+                    <span class="nav-title">Sign In</span>
+                </router-link>
+
                 <a href="" class="btn-floating btn-large halfway-fab pink">
                     <router-link :to="{ name: 'Addblog' }">
                         <i class="material-icons">add</i>
@@ -18,21 +23,19 @@
 
 <script>
 export default {
-    name:'Navbar',
-    data(){
-        return {
-
-        }
-    }
-}
+  name: "Navbar",
+  data() {
+    return {};
+  }
+};
 </script>
 
 <style>
-.navbar nav{
-    padding: 0 20px;
+.navbar nav {
+  padding: 0 20px;
 }
-.responsive-img{
-    max-width: 100% ;
-    height:auto ;
+.responsive-img {
+  max-width: 100%;
+  height: auto;
 }
 </style>
