@@ -6,9 +6,9 @@
 
             <input id="email" v-model="formData.email" class="form-control" placeholder="email">
             <br>
-            <input id="password" v-model="formData.password" class="form-control" placeholder="password">
+            <input id="password" v-model="formData.password" class="form-control" type="password" placeholder="password">
             <br>
-            <button class="btn btn-success" @click="signIn">Signin</button>
+            <button class="btn btn-success" @click="signIn()">Signin</button>
         </div>
 
     </div>
@@ -27,22 +27,27 @@ import firebase from '@/firebase/init'
             }
         },
 methods: {
-          signIn(){
+            signIn(){
             firebase.auth().signInWithEmailAndPassword(this.formData.email,this.formData.password)
                 .then((user)=>{
                   // Do Something After Sign in
+                  this.$store.commit('signinState', true)
+                  this.$router.replace('/')                  
                 })
                 .catch((e)=>{
                     alert(e.message)
                 })
-            },
-            signOut(){
-              firebase.auth().signOut().then(function() {
-                //Do Something after Sign out     
-              }).catch(function(error) {
-                // An error happened.
-              });
-            }
+            },   
+            // signOut(){
+            //   firebase.auth().signOut().then(function() {
+            //     //Do Something after Sign out
+            //     this.$store.commit('signinState', false);
+            //     console.log('signout');
+            //     this.$router.replace('/sign-in');
+            //   }).catch(function(error) {
+            //     // An error happened.
+            //   });
+            // }        
         }
     }
 </script>

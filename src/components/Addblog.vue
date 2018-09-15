@@ -55,7 +55,7 @@ export default {
                    lower: true
                })
                console.log(this.slug)
-               db.collection('blogs').add({
+               db.firestore().collection('blogs').add({
                   title : this.title ,
                   ingredients : this.ingredients,
                    slug: this.slug

@@ -55,7 +55,7 @@ methods:{
                    lower: true
                })
               // console.log(this.slug)
-               db.collection('blogs').doc(this.blog.id).update({
+               db.firestore().collection('blogs').doc(this.blog.id).update({
                   title : this.blog.title ,
                   ingredients : this.blog.ingredients,
                    slug: this.blog.slug
@@ -86,7 +86,7 @@ methods:{
     
 },
 created() {
-    let ref = db.collection('blogs').where('slug','==' ,this.$route.params.blog_slug )
+    let ref = db.firestore().collection('blogs').where('slug','==' ,this.$route.params.blog_slug )
     ref.get().then(snapshot => {
         snapshot.forEach(doc => {
             //console.log(doc.data())

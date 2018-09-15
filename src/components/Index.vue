@@ -47,7 +47,7 @@ export default {
   methods:{
     deleteBlog(id){
       //Delete doc from firestore
-      db.collection('blogs').doc(id).delete()
+      db.firestore().collection('blogs').doc(id).delete()
       .then(() =>{
          this.blogs = this.blogs.filter(blog => {
         return blog.id != id 
@@ -59,7 +59,7 @@ export default {
   },
   created() {
     // fetch data from the firestore 
-    db.collection('blogs').get()
+    db.firestore().collection('blogs').get()
       .then(snapshot =>{
           snapshot.forEach(doc => {
            // console.log(doc.data(), doc.id)
@@ -76,7 +76,7 @@ export default {
 <style>
 .index {
   display: grid ;
-  grid-template-columns: 1fr ;
+  grid-template-columns: 1fr 1fr ;
   grid-gap: 10px;
   margin-top : 60px;
   max-width: 1000px;
